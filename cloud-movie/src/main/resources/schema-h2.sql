@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS contents CASCADE;
+
+CREATE TABLE IF NOT EXISTS contents (
+  	id 			INTEGER,
+  	title 		VARCHAR(100),
+  	director 	VARCHAR(100),
+  	year      	VARCHAR(50),
+	genre 		VARCHAR(50)
+);
+
+ALTER TABLE contents MODIFY id INTEGER NOT NULL AUTO_INCREMENT;

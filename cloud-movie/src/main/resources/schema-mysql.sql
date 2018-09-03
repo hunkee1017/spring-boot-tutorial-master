@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS contents CASCADE;
+
+CREATE TABLE IF NOT EXISTS contents (
+  	id 			INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  	title 		VARCHAR(100),
+  	director 	VARCHAR(100),
+  	year      	VARCHAR(50),
+	genre 		VARCHAR(50)
+);

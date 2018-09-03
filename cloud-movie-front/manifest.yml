@@ -1,0 +1,9 @@
+applications:
+- name: cloud-movie-front
+  memory: 1G
+  instances: 1
+  random-route: true
+  path: ./target/cloud-movie-front-0.0.1-SNAPSHOT.war
+  env:
+    SPRING_PROFILES_ACTIVE: dev
+    

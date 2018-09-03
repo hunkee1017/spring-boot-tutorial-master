@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: cloud-movie-k8s
+  datasource:
+    initialize: true
+    platform: mysql
+    url: jdbc:mysql://${CLOUD_MOVIE_DB_SERVICE_HOST}:${CLOUD_MOVIE_DB_SERVICE_PORT}/${MYSQL_DATABASE}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+  # Session
+  session:
+    store-type: redis
+  redis: 
+    host: ${CLOUD_MOVIE_REDIS_SERVICE_HOST}
+    port: ${CLOUD_MOVIE_REDIS_SERVICE_PORT}
+    pool:
+      min-idle: 16
+      max-active: -1
+      max-idle: -1
+      max-wait: -1

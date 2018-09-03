@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: cloud-movie-db-deployment
+  labels:
+    app: cloud-movie-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-movie-db
+  template:
+    metadata:
+      labels:
+        app: cloud-movie-db
+    spec:
+      containers:
+      - name: cloud-movie-db
+        env:
+        - name: MYSQL_DATABASE
+          value: db_example
+        - name: MYSQL_PASSWORD
+          value: ThePassword
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_USER
+          value: springuser
+        image: mariadb
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3306
+      restartPolicy: Always      
+status: {}

@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: cloud-movie-front
+    
+management:
+  security:
+    enabled: false
+    
+rest:
+  address: http://localhost:8090

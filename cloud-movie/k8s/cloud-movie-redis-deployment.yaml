@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: cloud-movie-redis-deployment
+  labels:
+    app: cloud-movie-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-movie-redis
+  template:
+    metadata:
+      labels:
+        app: cloud-movie-redis
+    spec:
+      containers:
+      - image: redis
+        imagePullPolicy: Always
+        name: cloud-movie-redis
+        ports:
+        - containerPort: 6379
+      restartPolicy: Always
+status: {}

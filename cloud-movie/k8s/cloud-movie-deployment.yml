@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: cloud-movie-solution-deployment
+  labels:
+    app: cloud-movie-solution
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-movie-solution
+  template:
+    metadata:
+      labels:
+        app: cloud-movie-solution
+    spec:
+      containers:
+      - name: cloud-movie-solution
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: k8s
+        - name: MYSQL_DATABASE
+          value: db_example
+        - name: MYSQL_PASSWORD
+          value: ThePassword       
+        - name: MYSQL_USER
+          value: springuser
+        image: dtlabs/cloud-movie
+        ports:
+        - containerPort: 8090
+        imagePullPolicy: Always
